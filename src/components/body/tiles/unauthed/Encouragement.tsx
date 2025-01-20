@@ -27,16 +27,14 @@ export const Encouragement = () => {
         {/*img accent color is amber-500*/}
       </div>
       <div className="m-5 flex flex-col justify-evenly gap-2 rounded-md border border-yellow-500 border-opacity-50 bg-red-900 bg-opacity-70 p-6 text-stone-50">
-        <div className="text-2xl font-bold">Get in step with your dog!</div>
+        <div className="text-2xl font-bold">Don't forget to go outside!</div>
         <div className="text-base font-normal text-stone-100">
-          KibbleCheck keeps you connected with your dog's meal schedule. Take a
-          walk around our calendar to trace your dog's feeding footsteps!
+          I know this game is uper fun and everyone loves applying for jobs, but
+          you should remember to go touch grass here and there throughout the
+          day!
         </div>
         <div className="mt-3 flex items-center justify-end">
-          <SignInButton
-            text="Get Started"
-            aria-label="Sign in button"
-          />
+          <SignInButton text="Get Started" aria-label="Sign in button" />
         </div>
       </div>
       <div className="absolute -z-50 h-[22em] w-[22em] -translate-y-56 translate-x-44 rounded-full bg-yellow-600 opacity-90 blur-lg" />

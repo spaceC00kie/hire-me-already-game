@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { BiWalk } from "react-icons/bi"
+import { BiWalk, BiGhost } from "react-icons/bi"
 import { GiBrain } from "react-icons/gi"
 import { MdMoneyOffCsred } from "react-icons/md"
 import { InfoCard } from "./InfoCard"
@@ -23,19 +23,19 @@ export const InfoTile: React.FC<Props> = () => {
       }}
       className="grid gap-3 sm:grid-cols-2 md:grid-cols-3"
       role="group"
-      aria-label="Reasons you might like to use KibbleCheck"
+      aria-label="Reasons you might like to play my game"
     >
       <InfoCard
         icon={<GiBrain size={36} aria-label="Brain icon" />}
-        title="Suspiciously Smart Dog?"
-        description="Beware of your dog outfoxing you for nibbles."
-        aria-label="Smart dog info card"
+        title="Do you need to be imaginative?"
+        description="In real life, a little. But not for this."
+        aria-label="Info card 1"
       />
       <InfoCard
-        icon={<BiWalk size={36} aria-label="Walk symbol" />}
-        title="Using a Dog Walker or Pet Sitter?"
-        description="Take the guesswork out of coordinating mealtimes."
-        aria-label="Dog walker info card"
+        icon={<BiGhost size={36} aria-label="Ghost symbol" />}
+        title="Why is the ghost here?"
+        description="I just like it. Isn't it cute?"
+        aria-label="Info card 2"
       />
       <InfoCard
         icon={
@@ -44,9 +44,9 @@ export const InfoTile: React.FC<Props> = () => {
             aria-label="Dollar sign with a slash through it"
           />
         }
-        title="KibbleCheck is 100% free!"
-        description="No ads, no data collection, no strings attached."
-        aria-label="Free service info card"
+        title="Is this game free?"
+        description="You betcha. I don't need money. That's why applying forever is fine with me."
+        aria-label="Info card 3"
       />
     </motion.div>
   )

@@ -19,11 +19,11 @@ export const MainTileUnauthed = () => {
     >
       <div className="grid h-full place-content-center sm:w-1/2">
         <div className="rounded-md border border-yellow-600 bg-red-800 bg-opacity-50 p-5 text-xl font-semibold text-stone-100 sm:text-2xl md:text-3xl lg:font-bold">
-          Simple Meal Tracking
+          A Job Hunting Game
           <ul className="grid list-square place-content-center gap-1 py-2 pl-4 text-lg font-normal text-stone-50 sm:font-semibold md:text-xl lg:font-bold">
-            <li>Schedule future meals</li>
-            <li>Check off feedings</li>
-            <li>View the history</li>
+            <li>Apply a ton</li>
+            <li>Hope</li>
+            <li>See if you get an interview</li>
           </ul>
         </div>
       </div>
