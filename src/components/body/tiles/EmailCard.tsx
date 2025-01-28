@@ -1,19 +1,14 @@
 import { BiTrash } from "react-icons/bi"
 
-interface Props {
-  setApplied: React.Dispatch<React.SetStateAction<boolean>>
-}
+interface Props {}
 
-export const EmailCard: React.FC<Props> = ({ setApplied }) => {
+export const EmailCard: React.FC<Props> = ({}) => {
   return (
     <div className="flex h-52 w-full rounded-md border py-2">
       <div className="flex flex-col text-white">
         <div className="flex justify-between">
           <div className="px-3 py-2 text-2xl">Rejected!</div>
-          <button
-            className="flex justify-end rounded-md p-3 hover:border"
-            onClick={() => setApplied(false)}
-          >
+          <button className="flex justify-end rounded-md p-3 hover:border">
             <BiTrash size={18} />
           </button>
         </div>
