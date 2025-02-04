@@ -18,6 +18,7 @@ export const jobQueue: Array<Job> = [
     title: "Software Developer",
     company: "Phantom Tech",
     location: "San Francisco, CA",
+    waitTime: 10000,
     benefits: "$95K/yr - $130K/yr · Medical · 401k · Remote Flexibility",
     tag: "This is an ad",
   },
@@ -27,6 +28,7 @@ export const jobQueue: Array<Job> = [
     title: "Software Engineer II",
     company: "Orbit Solutions",
     location: "Remote",
+    waitTime: 2000,
     benefits: "$105K/yr - $145K/yr · 401k, Medical, Vision, Dental",
   },
   {
@@ -35,6 +37,7 @@ export const jobQueue: Array<Job> = [
     title: "Frontend Developer",
     company: "Lunar UI Labs",
     location: "Seattle, WA",
+    waitTime: 2000,
     benefits: "$89.2K/yr - $149.8K/yr · Medical · 401k",
   },
   {
@@ -43,6 +46,7 @@ export const jobQueue: Array<Job> = [
     title: "QA Engineer",
     company: "CyberVerify",
     location: "Austin, TX",
+    waitTime: 3000,
     benefits: "Starting at $40/hr",
     tag: "This is an ad",
   },
@@ -52,6 +56,7 @@ export const jobQueue: Array<Job> = [
     title: "Full Stack Developer",
     company: "Sweet Code LLC",
     location: "Remote",
+    waitTime: 1000,
     benefits: "$100K/yr - $135K/yr · 401k, Medical, Vision, Dental",
   },
   {
@@ -60,6 +65,7 @@ export const jobQueue: Array<Job> = [
     title: "Backend Engineer",
     company: "Meteor Logic",
     location: "New York, NY",
+    waitTime: 2000,
   },
   {
     id: 7,
@@ -69,6 +75,7 @@ export const jobQueue: Array<Job> = [
     location: "Denver, CO",
     benefits: "$110K/yr - $140K/yr · Medical, 401k, Remote Work Available",
     tag: "This is an ad",
+    waitTime: 1000,
   },
   {
     id: 8,
@@ -76,6 +83,7 @@ export const jobQueue: Array<Job> = [
     title: "Embedded Systems Engineer",
     company: "NanoTech Inc.",
     location: "San Diego, CA",
+    waitTime: 6000,
     benefits: "$95K/yr - $120K/yr · 401k, Medical, Stock Options",
   },
   {
@@ -84,6 +92,7 @@ export const jobQueue: Array<Job> = [
     title: "Machine Learning Engineer",
     company: "Quantum AI Labs",
     location: "Boston, MA",
+    waitTime: 4000,
     benefits: "$120K/yr - $160K/yr · Medical, Vision, Dental, 401k",
   },
 ]
