@@ -3,9 +3,10 @@ import { Job } from "../../../interfaces/Job"
 
 interface Props {
   job: Job
+  emailList: Job[]
 }
 
-export const EmailCard: React.FC<Props> = ({ job }) => {
+export const EmailCard: React.FC<Props> = ({ job, emailList }) => {
   return (
     <div className="min-h-52 flex w-full rounded-md border py-2">
       <div className="flex flex-col text-white">
@@ -17,7 +18,7 @@ export const EmailCard: React.FC<Props> = ({ job }) => {
         </div>
         <div className="px-3 pb-1">Greetings Faceless Candidate,</div>
         <div className="px-3 py-1">
-          You've been rejected for our {job.title} role.
+          You've been rejected for {job.company}'s {job.title} role.
         </div>
         <div className="px-3 py-1">
           We hired someone else. Or we were kidding about hiring anyone to begin
