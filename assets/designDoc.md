@@ -9,14 +9,14 @@ A satirical game based off the current job hunting experience in America, specif
 The user is shown a list of jobs for which they can apply by clicking an "Apply" button on each job's card.
 After they do, they receive an email that says they have been rejected.
 
-Each job will have an id, title, icon, company name, location, a time to wait before they send their rejection email, and, optionally, a benefits list or a tag that says the job listing is an ad.
+Each job will have an id, title, icon, company name, location, a time to wait before they send their rejection email, and, optionally, a benefits list and/or a tag that says the job listing is an ad.
 
 ### Code
 
 2 lists(shown to users): jobs and emails  
 2 queues(used to populate lists): contain jobs and emails
 
-9 jobs are popped from the job queue to the job list when user clicks "Search"  
+Jobs are popped from the job queue to the job list when user clicks "Search"  
 A job is added to the email queue when the user clicks "Apply" on the job card  
 Jobs are popped off the email queue and added to the email list after their "waitTime" has passed  
 A job will be removed from the email list when the user clicks the trash button in the email card  

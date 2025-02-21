@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Job } from "../../../interfaces/Job"
-import { EmailQueue } from "../../applyWithin/EmailQueue"
+import EmailQueue, { addEmail } from "../../applyWithin/EmailQueue"
 
 interface Props {
   job: Job
@@ -11,7 +11,7 @@ export const JobCard: React.FC<Props> = ({ job }) => {
   const [haveApplied, setHaveApplied] = useState(false)
 
   const handleApply = () => {
-    EmailQueue.push(job)
+    addEmail(job)
     setHaveApplied(true)
   }
 

@@ -2,7 +2,7 @@ import { BiEnvelope } from "react-icons/bi"
 import { EmailCard } from "../body/tiles/EmailCard"
 import { useEffect, useState } from "react"
 import { Job } from "../../interfaces/Job"
-import { EmailQueue } from "../applyWithin/EmailQueue"
+import EmailQueue, { subscribeToEmailQueue } from "../applyWithin/EmailQueue"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
 
 interface Props {}
@@ -11,23 +11,25 @@ export const CMail: React.FC<Props> = ({}) => {
   // const [emailList, setEmailList] = useLocalStorage<Job[]>("emailList", [])
   const [emailList, setEmailList] = useState<Job[]>([])
 
-  // implement wait time for jobs being popped off email queue onto list
-  // currently being done with CheckEmail button, but that doesn't use waitTime
+  // not popping emails off queue, just setting email list to same
+  // not using waitTimes from jobs
+
+  useEffect(() => {
+    const updateEmailListRandomly = () => {
+      setTimeout(() => {
+        setEmailList([...EmailQueue])
+        // lengthen window to 0 - 10 after done developing?
+        // or use waitTime?
+      }, Math.random() * 4000)
+    }
+    const unsubscribe = subscribeToEmailQueue(updateEmailListRandomly)
+    return () => unsubscribe()
+  }, [])
 
   return (
     <div className="flex w-1/2 flex-col">
       <div className="flex w-full justify-center">
         <BiEnvelope size={52} color="white" />
-      </div>
-      <div className="flex w-full justify-center">
-        {emailList.length < 1 && (
-          <button
-            className="w-2/3 rounded-md border border-white text-white"
-            onClick={() => setEmailList(EmailQueue)}
-          >
-            Check email?
-          </button>
-        )}
       </div>
       {emailList.length > 0 ? (
         <div className="flex w-full flex-col items-center gap-2">
@@ -37,7 +39,7 @@ export const CMail: React.FC<Props> = ({}) => {
         </div>
       ) : (
         <div className="text-white">
-          Go ahead. Click apply. What are you afraid of?
+          Start searching, then click "Apply". What are you afraid of?
         </div>
       )}
     </div>

@@ -20,7 +20,9 @@ export const ApplyWithin: React.FC<Props> = ({}) => {
   const popJobsForToday = () => {
     const jobsForToday: Job[] = []
     const job = jobQueue.pop()
+    // const jobs: Job[] = jobQueue.slice(0, 5)
     if (job) jobsForToday.push(job)
+    // if (jobs) jobsForToday.push(...jobs)
     setJobsList(jobsForToday)
     setHasSearchBegun(true)
   }
@@ -36,7 +38,7 @@ export const ApplyWithin: React.FC<Props> = ({}) => {
             className="w-2/3 rounded-md border border-white text-white"
             onClick={popJobsForToday}
           >
-            Search
+            Begin job search
           </button>
         )}
       </div>
