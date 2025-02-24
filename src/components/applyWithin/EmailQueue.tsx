@@ -1,11 +1,11 @@
 import { Job } from "../../interfaces/Job"
 
-const EmailQueue: Array<Job> = []
+const emailQueue: Array<Job> = []
 
 const subscribers: (() => void)[] = []
 
 export const addEmail = (job: Job) => {
-  EmailQueue.push(job)
+  emailQueue.push(job)
   subscribers.forEach((callback) => callback())
 }
 
@@ -18,4 +18,4 @@ export const subscribeToEmailQueue = (callback: () => void) => {
   }
 }
 
-export default EmailQueue
+export default emailQueue

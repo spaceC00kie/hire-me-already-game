@@ -2,7 +2,6 @@ import { BiEnvelope } from "react-icons/bi"
 import { EmailCard } from "../body/tiles/EmailCard"
 import { useEffect, useState } from "react"
 import { Job } from "../../interfaces/Job"
-import EmailQueue, { subscribeToEmailQueue } from "../applyWithin/EmailQueue"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
 
 interface Props {}
@@ -10,20 +9,19 @@ interface Props {}
 export const CMail: React.FC<Props> = ({}) => {
   // const [emailList, setEmailList] = useLocalStorage<Job[]>("emailList", [])
   const [emailList, setEmailList] = useState<Job[]>([])
+  const [emailQueue, setEmailQueue] = useState<Job[]>([])
 
-  // not popping emails off queue, just setting email list to same
   // not using waitTimes from jobs
 
   useEffect(() => {
-    const updateEmailListRandomly = () => {
-      setTimeout(() => {
-        setEmailList([...EmailQueue])
-        // lengthen window to 0 - 10 after done developing?
-        // or use waitTime?
-      }, Math.random() * 4000)
+    const timeoutId = setTimeout(() => {
+      if (emailQueue.length > 0)
+        setEmailQueue([...emailQueue, emailQueue.pop()!])
+      // or use waitTime?
+    }, 3000)
+    return () => {
+      clearTimeout(timeoutId)
     }
-    const unsubscribe = subscribeToEmailQueue(updateEmailListRandomly)
-    return () => unsubscribe()
   }, [])
 
   return (

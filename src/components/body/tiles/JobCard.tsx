@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Job } from "../../../interfaces/Job"
-import EmailQueue, { addEmail } from "../../applyWithin/EmailQueue"
+import emailQueue, { addEmail } from "../../applyWithin/EmailQueue"
 
 interface Props {
   job: Job
