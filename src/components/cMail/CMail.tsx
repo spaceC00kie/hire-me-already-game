@@ -11,6 +11,8 @@ export const CMail: React.FC<Props> = ({}) => {
   // const [emailList, setEmailList] = useLocalStorage<Job[]>("emailList", [])
   const [emailList, setEmailList] = useState<Job[]>([])
 
+  const [score, setScore] = useState(0)
+
   const { emailQueue } = EmailQueue.useContainer()
 
   // not using waitTimes from jobs. Using 3 second interval for now
@@ -28,13 +30,19 @@ export const CMail: React.FC<Props> = ({}) => {
 
   return (
     <div className="flex w-1/2 flex-col">
-      <div className="flex w-full justify-center">
-        <BiEnvelope size={52} color="white" />
+      <div className="flex w-full justify-center text-white">
+        <BiEnvelope size={52} color="white" /> Score: {score}
       </div>
       {emailList.length > 0 ? (
         <div className="flex w-full flex-col items-center gap-2">
           {emailList.map((job) => (
-            <EmailCard key={job.id} job={job} emailList={emailList} />
+            <EmailCard
+              key={job.id}
+              job={job}
+              emailList={emailList}
+              score={score}
+              setScore={setScore}
+            />
           ))}
         </div>
       ) : (

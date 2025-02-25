@@ -9,7 +9,7 @@ interface Props {
 export const JobCard: React.FC<Props> = ({ job }) => {
   // change to useLocalStorage??
   const [haveApplied, setHaveApplied] = useState(false)
-  const { emailQueue, setEmailQueue } = EmailQueue.useContainer()
+  const { emailQueue } = EmailQueue.useContainer()
 
   const handleApply = () => {
     emailQueue.push(job)
