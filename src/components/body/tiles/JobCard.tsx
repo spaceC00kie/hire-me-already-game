@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Job } from "../../../interfaces/Job"
-import emailQueue, { addEmail } from "../../applyWithin/EmailQueue"
+import { EmailQueue } from "../../../containers/Email"
 
 interface Props {
   job: Job
@@ -9,9 +9,10 @@ interface Props {
 export const JobCard: React.FC<Props> = ({ job }) => {
   // change to useLocalStorage??
   const [haveApplied, setHaveApplied] = useState(false)
+  const { emailQueue, setEmailQueue } = EmailQueue.useContainer()
 
   const handleApply = () => {
-    addEmail(job)
+    emailQueue.push(job)
     setHaveApplied(true)
   }
 

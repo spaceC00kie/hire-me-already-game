@@ -3,24 +3,26 @@ import { EmailCard } from "../body/tiles/EmailCard"
 import { useEffect, useState } from "react"
 import { Job } from "../../interfaces/Job"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
+import { EmailQueue } from "../../containers/Email"
 
 interface Props {}
 
 export const CMail: React.FC<Props> = ({}) => {
   // const [emailList, setEmailList] = useLocalStorage<Job[]>("emailList", [])
   const [emailList, setEmailList] = useState<Job[]>([])
-  const [emailQueue, setEmailQueue] = useState<Job[]>([])
 
-  // not using waitTimes from jobs
+  const { emailQueue } = EmailQueue.useContainer()
+
+  // not using waitTimes from jobs. Using 3 second interval for now
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (emailQueue.length > 0)
-        setEmailQueue([...emailQueue, emailQueue.pop()!])
-      // or use waitTime?
+    const intervalId = setInterval(() => {
+      if (emailQueue.length > 0) {
+        setEmailList((prevList) => [...prevList, emailQueue.pop()!])
+      }
     }, 3000)
     return () => {
-      clearTimeout(timeoutId)
+      clearInterval(intervalId)
     }
   }, [])
 
