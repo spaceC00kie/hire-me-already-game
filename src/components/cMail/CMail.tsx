@@ -40,6 +40,7 @@ export const CMail: React.FC<Props> = ({}) => {
               key={job.id}
               job={job}
               emailList={emailList}
+              setEmailList={setEmailList}
               score={score}
               setScore={setScore}
             />

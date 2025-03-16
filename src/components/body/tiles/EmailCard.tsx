@@ -5,6 +5,7 @@ import { useState } from "react"
 interface Props {
   job: Job
   emailList: Job[]
+  setEmailList: React.Dispatch<React.SetStateAction<Job[]>>
   score: number
   setScore: React.Dispatch<React.SetStateAction<number>>
 }
@@ -12,31 +13,30 @@ interface Props {
 export const EmailCard: React.FC<Props> = ({
   job,
   emailList,
+  setEmailList,
   score,
   setScore,
 }) => {
+  const currentJob = job
+  const deleteEmail = () => {
+    // remove item with job.id from emailList
+    // by setting emailList to itself, filtering out currentJob
+    setEmailList(emailList.filter((job) => job.id !== currentJob.id))
+  }
   const [trashed, setTrashed] = useState(false)
   const handleTrashed = () => {
-    // instead of setting to true, remove from emailList
-    setTrashed(true)
     setScore(score + 1)
+    deleteEmail()
   }
 
-  const deletedEmailStyle = "border-stone-400 text-stone-400"
-
   return (
-    <div
-      className={`min-h-52 flex w-full rounded-md border py-2 text-white ${
-        trashed ? deletedEmailStyle : ""
-      }`}
-    >
+    <div className="min-h-52 flex w-full rounded-md border py-2 text-white">
       <div className="flex flex-col">
         <div className="flex justify-between">
           <div className="px-3 py-2 text-2xl">Rejected!</div>
           <button
             className="flex justify-end rounded-md p-3 hover:border"
             onClick={handleTrashed}
-            disabled={trashed}
           >
             <BiTrash size={18} />
           </button>
