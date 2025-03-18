@@ -1,6 +1,5 @@
 import { BiTrash } from "react-icons/bi"
 import { Job } from "../../../interfaces/Job"
-import { useState } from "react"
 
 interface Props {
   job: Job
@@ -19,11 +18,8 @@ export const EmailCard: React.FC<Props> = ({
 }) => {
   const currentJob = job
   const deleteEmail = () => {
-    // remove item with job.id from emailList
-    // by setting emailList to itself, filtering out currentJob
     setEmailList(emailList.filter((job) => job.id !== currentJob.id))
   }
-  const [trashed, setTrashed] = useState(false)
   const handleTrashed = () => {
     setScore(score + 1)
     deleteEmail()

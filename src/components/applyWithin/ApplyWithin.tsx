@@ -1,4 +1,4 @@
-import { BiGhost } from "react-icons/bi"
+import { GiHandcuffs } from "react-icons/gi"
 import { JobCard } from "../body/tiles/JobCard"
 import { jobQueue } from "./JobQueue"
 import { Job } from "../../interfaces/Job"
@@ -20,7 +20,7 @@ export const ApplyWithin: React.FC<Props> = ({}) => {
   const popJobsForToday = () => {
     const jobsForToday: Job[] = []
     // const job = jobQueue.pop()
-    const jobs: Job[] = jobQueue.slice(0, 5)
+    const jobs: Job[] = jobQueue.slice(0, 10)
     // if (job) jobsForToday.push(job)
     if (jobs) jobsForToday.push(...jobs)
     setJobsList(jobsForToday)
@@ -30,7 +30,7 @@ export const ApplyWithin: React.FC<Props> = ({}) => {
   return (
     <div className="flex h-full w-1/2 flex-col gap-2">
       <div className="flex w-full justify-center">
-        <BiGhost size={52} color="white" />
+        <GiHandcuffs size={52} color="white" />
       </div>
       <div className="flex w-full justify-center">
         {!hasSearchBegun && (

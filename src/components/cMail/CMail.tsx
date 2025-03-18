@@ -11,6 +11,7 @@ export const CMail: React.FC<Props> = ({}) => {
   // const [emailList, setEmailList] = useLocalStorage<Job[]>("emailList", [])
   const [emailList, setEmailList] = useState<Job[]>([])
 
+  // const [score, setScore] = useLocalStorage<number>("score", 0)
   const [score, setScore] = useState(0)
 
   const { emailQueue } = EmailQueue.useContainer()

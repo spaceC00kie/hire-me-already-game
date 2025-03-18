@@ -8,6 +8,7 @@ import {
   BiRocket,
   BiChip,
   BiAtom,
+  BiWater,
 } from "react-icons/bi"
 import { Job } from "../../interfaces/Job"
 
@@ -94,5 +95,14 @@ export const jobQueue: Array<Job> = [
     location: "Boston, MA",
     waitTime: 4000,
     benefits: "$120K/yr - $160K/yr · Medical, Vision, Dental, 401k",
+  },
+  {
+    id: 10,
+    icon: <BiWater size={32} />,
+    title: "DevOps Engineer",
+    company: "Pipeline Works",
+    location: "Remote",
+    waitTime: 3000,
+    benefits: "$115K/yr - $150K/yr · 401k, Medical, Remote Flexibility",
   },
 ]
