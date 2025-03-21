@@ -21,9 +21,13 @@ export const CMail: React.FC<Props> = ({}) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (emailQueue.length > 0) {
-        setEmailList((prevList) => [...prevList, emailQueue.pop()!])
+        const job = emailQueue.pop()
+        if (job) {
+          setEmailList((prevList) => [...prevList, job])
+        }
       }
     }, 3000)
+
     return () => {
       clearInterval(intervalId)
     }
