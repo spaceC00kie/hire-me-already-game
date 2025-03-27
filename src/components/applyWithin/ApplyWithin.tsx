@@ -19,9 +19,8 @@ export const ApplyWithin: React.FC<Props> = ({}) => {
 
   const popJobsForToday = () => {
     const jobsForToday: Job[] = []
-    // const job = jobQueue.pop()
-    const jobs: Job[] = jobQueue.slice(0, 10)
-    // if (job) jobsForToday.push(job)
+    const howManyJobsToSlice = jobQueue.length < 10 ? jobQueue.length : 10
+    const jobs: Job[] = jobQueue.slice(0, howManyJobsToSlice)
     if (jobs) jobsForToday.push(...jobs)
     setJobsList(jobsForToday)
     setHasSearchBegun(true)
