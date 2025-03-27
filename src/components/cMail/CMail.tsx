@@ -2,21 +2,16 @@ import { BiEnvelope } from "react-icons/bi"
 import { EmailCard } from "../body/tiles/EmailCard"
 import { useEffect, useState } from "react"
 import { Job } from "../../interfaces/Job"
-import { useLocalStorage } from "../../hooks/useLocalStorage"
 import { EmailQueue } from "../../containers/Email"
 
 interface Props {}
 
 export const CMail: React.FC<Props> = ({}) => {
-  // const [emailList, setEmailList] = useLocalStorage<Job[]>("emailList", [])
   const [emailList, setEmailList] = useState<Job[]>([])
 
-  // const [score, setScore] = useLocalStorage<number>("score", 0)
   const [score, setScore] = useState(0)
 
   const { emailQueue } = EmailQueue.useContainer()
-
-  // not using waitTimes from jobs. Using 3 second interval for now
 
   useEffect(() => {
     const intervalId = setInterval(() => {

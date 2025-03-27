@@ -1,20 +1,14 @@
-import { GiHandcuffs } from "react-icons/gi"
+import { BiInfinite } from "react-icons/bi"
 import { JobCard } from "../body/tiles/JobCard"
 import { jobQueue } from "./JobQueue"
 import { Job } from "../../interfaces/Job"
-import { useLocalStorage } from "../../hooks/useLocalStorage"
 import { useState } from "react"
 
 interface Props {}
 
 export const ApplyWithin: React.FC<Props> = ({}) => {
-  // const [jobsList, setJobsList] = useLocalStorage<Job[]>("jobsList", [])
   const [jobsList, setJobsList] = useState<Job[]>([])
 
-  // const [hasSearchBegun, setHasSearchBegun] = useLocalStorage(
-  //   "hasSearchBegun",
-  //   false,
-  // )
   const [hasSearchBegun, setHasSearchBegun] = useState(false)
 
   const popJobsForToday = () => {
@@ -29,7 +23,7 @@ export const ApplyWithin: React.FC<Props> = ({}) => {
   return (
     <div className="flex h-full w-1/2 flex-col gap-2">
       <div className="flex w-full justify-center">
-        <GiHandcuffs size={52} color="white" />
+        <BiInfinite size={52} color="white" />
       </div>
       <div className="flex w-full justify-center">
         {!hasSearchBegun && (
