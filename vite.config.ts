@@ -16,9 +16,9 @@ export default defineConfig({
       ],
       manifest: {
         id: "/",
-        name: "KibbleCheck",
-        short_name: "KibbleCheck",
-        description: "Keeping track of your dog's meals",
+        name: "Hire Me",
+        short_name: "HireMe",
+        description: "A game about how it feels to job hunt",
         theme_color: "#ffffff",
         icons: [
           {
