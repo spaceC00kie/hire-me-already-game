@@ -1,11 +1,11 @@
 {
   "firestore": {
-    "target": "kibble-check",
+    "target": "hire-me-already-game",
     "rules": "firestore.rules"
   },
   "hosting": [
     {
-      "target": "kibble-check",
+      "target": "hire-me-already-game",
       "predeploy": "yarn build",
       "public": "dist",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
@@ -16,8 +16,5 @@
         }
       ]
     }
-  ],
-  "storage": {
-    "rules": "storage.rules"
-  }
+  ]
 }

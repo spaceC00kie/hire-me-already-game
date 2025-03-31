@@ -1,12 +1,12 @@
 {
   "projects": {
-    "kibble-check": "has-the-dog-been-fed-f9102"
+    "default": "hire-me-already-game"
   },
   "targets": {
-    "has-the-dog-been-fed-f9102": {
+    "hire-me-already-game": {
       "hosting": {
-        "kibble-check": [
-          "has-the-dog-been-fed-f9102"
+        "hire-me-already-game": [
+          "hire-me-already-game"
         ]
       }
     }
