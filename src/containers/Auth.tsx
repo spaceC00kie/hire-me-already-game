@@ -39,24 +39,15 @@ const useAuth = () => {
         "users",
         auth.currentUser!.uid,
       ) as DocumentReference<User>
-      const familyDoc = doc(db, "families", auth.currentUser!.uid + "-family")
       runTransaction(db, async (transaction) => {
         const doc = await transaction.get(userDoc)
         if (!doc.exists()) {
           transaction.set(userDoc, {
+            id: auth.currentUser!.uid,
             photoURL: auth.currentUser!.photoURL!,
             displayName: auth.currentUser!.displayName!,
             joinDate: serverTimestamp(),
-            searchableDisplayName: auth.currentUser!.displayName!.toLowerCase(),
-            id: auth.currentUser!.uid,
-            blockedUsers: [],
-            sentFamilyRequests: [],
-            redactedFamilyRequests: [],
-            familyMembers: [auth.currentUser!.uid! + "-family"],
-            isBanned: false,
-          })
-          transaction.set(familyDoc, {
-            users: [auth.currentUser!.uid],
+            score: 0,
           })
         }
       })
