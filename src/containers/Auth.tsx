@@ -48,6 +48,8 @@ const useAuth = () => {
             displayName: auth.currentUser!.displayName!,
             joinDate: serverTimestamp(),
             score: 0,
+            jobQueue: [],
+            emailQueue: [],
           })
         }
       })
