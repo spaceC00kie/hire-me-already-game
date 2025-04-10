@@ -18,10 +18,10 @@ import { User } from "../interfaces/User"
 import { useEffect, useState } from "react"
 
 const db = getFirestore(firebaseApp)
+const auth = getAuth(firebaseApp)
 
 const useAuth = () => {
-  const auth = getAuth(firebaseApp)
-
+  
   const [user, loading] = useAuthState(auth)
   const [isLoading, setIsLoading] = useState(true)
 
