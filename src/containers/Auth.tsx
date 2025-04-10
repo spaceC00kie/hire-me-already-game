@@ -21,14 +21,11 @@ const db = getFirestore(firebaseApp)
 const auth = getAuth(firebaseApp)
 
 const useAuth = () => {
-  
   const [user, loading] = useAuthState(auth)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (!loading) {
-      setIsLoading(false)
-    }
+    setIsLoading(loading)
   }, [loading])
 
   const signInWithGoogle = async (): Promise<void> => {
