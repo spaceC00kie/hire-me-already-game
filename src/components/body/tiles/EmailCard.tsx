@@ -1,5 +1,8 @@
 import { BiTrash } from "react-icons/bi"
 import { Job } from "../../../interfaces/Job"
+import { Auth } from "../../../containers/Auth"
+import { doc, getFirestore } from "firebase/firestore"
+import { firebaseApp } from "../../../../firestore.config"
 
 interface Props {
   job: Job
@@ -16,6 +19,9 @@ export const EmailCard: React.FC<Props> = ({
   score,
   setScore,
 }) => {
+  const { db, user } = Auth.useContainer()
+
+  const userDocRef = user?.uid ? doc(db, "users", user.uid) : null
   const currentJob = job
   const deleteEmail = () => {
     setEmailList(emailList.filter((job) => job.id !== currentJob.id))

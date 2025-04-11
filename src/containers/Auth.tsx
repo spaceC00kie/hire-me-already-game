@@ -17,16 +17,11 @@ import {
 import { User } from "../interfaces/User"
 import { useEffect, useState } from "react"
 
-const db = getFirestore(firebaseApp)
 const auth = getAuth(firebaseApp)
 
 const useAuth = () => {
-  const [user, loading] = useAuthState(auth)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    setIsLoading(loading)
-  }, [loading])
+  const db = getFirestore(firebaseApp)
+  const [user] = useAuthState(auth)
 
   const signInWithGoogle = async (): Promise<void> => {
     const addToUsers = async (userCred: UserCredential | null) => {
@@ -62,9 +57,9 @@ const useAuth = () => {
   }
 
   return {
+    db,
     user,
     auth,
-    isLoading,
     signInWithGoogle,
     signOutWithGoogle,
   }

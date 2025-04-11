@@ -3,12 +3,25 @@ import { EmailCard } from "../body/tiles/EmailCard"
 import { useEffect, useState } from "react"
 import { Job } from "../../interfaces/Job"
 import { EmailQueue } from "../../containers/Email"
+import { Auth } from "../../containers/Auth"
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore"
+import { firebaseApp } from "../../../firestore.config"
+import { useLocalStorage } from "../../hooks/useLocalStorage"
 
 interface Props {}
 
 export const CMail: React.FC<Props> = ({}) => {
   const [emailList, setEmailList] = useState<Job[]>([])
 
+  const { db, user } = Auth.useContainer()
+
+  const userDocRef = user?.uid ? doc(db, "users", user.uid) : null
+
+  // useLocalStorage
+  // or, if logged in, get score from firestore
+  // const [score, setScore] = user
+  //   ? user.uid.score
+  //   : useLocalStorage("score", 0)
   const [score, setScore] = useState(0)
 
   const { emailQueue } = EmailQueue.useContainer()
